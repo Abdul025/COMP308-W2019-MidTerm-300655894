@@ -8,7 +8,7 @@
           <!-- ------------------------ -->
           <!-- FIX THE ADD BUTTON BELOW -->
           <!-- ------------------------ -->
-          <a href="/book-list/add" role="button" class="btn btn-primary"><i class="fa fa-plus"></i>Add a book</a>
+          <a href="/books/add" role="button" class="btn btn-primary"><i class="fa fa-plus"></i>Add a book</a>
           <br>
           <div class="table-responsive">
             <table class="table table-bordered table-striped table-hover">
@@ -32,12 +32,12 @@
                   <td class="text-center"><%= books[count].Genre %></td>
 
                   <td class="text-center">
-                    <a href="/book-list/edit/<%= bookList[count]._id %>"
+                    <a href="/books/edit/<%= books[count]._id %>"
                     class="btn btn-primary"><i class="fas fa-pencil-alt"></i> Edit</a>
                   </td>
 
                   <td class="text-center">
-                    <a href="/book-list/delete/<%= bookList[count]._id %>"
+                    <a href="/books/delete/<%= books[count]._id %>"
                     class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</a>
                   </td>
                 </tr>
