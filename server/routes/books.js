@@ -34,12 +34,14 @@ router.get('/add', (req, res, next) => {
 
 // POST process the Book Details page and create a new Book - CREATE
 router.post('/add', (req, res, next) => {
+  /*console.log(req.body);*/
 
+//making a new book and adding the details
   let newBook = book ({
-        "title": req.body.title,
-        "price": req.body.price,
-        "author": req.body.author,
-        "genre": req.body.genre
+    Title: req.body.title,
+    Author: req.body.author,
+    Price: req.body.price,
+    Genre: req.body.genre
   });
 
   book.create(newBook, (err, book) => {
@@ -59,17 +61,52 @@ router.post('/add', (req, res, next) => {
 // GET the Book Details page in order to edit an existing Book
 router.get('/:id', (req, res, next) => {
 
-    /*****************
-     * ADD CODE HERE *
-     *****************/
+    let id = req.params.id;
+
+    book.findById(id, (err, bookObject) => {
+      if(err){
+        console.log(err);
+        res.end(err);
+      }
+      else
+      {
+        //to display edit view
+        res.render('books/details', {
+          title: 'Books',
+        books: bookObject
+
+        });
+      }
+
+    });
 });
 
 // POST - process the information passed from the details form and update the document
 router.post('/:id', (req, res, next) => {
 
-    /*****************
-     * ADD CODE HERE *
-     *****************/
+  let id = req.params.id;
+
+  let updatedBook = book({
+    _id: id, 
+    Title: req.body.title,
+    Author: req.body.author,
+    Price: req.body.price,
+    Genre: req.body.genre
+  });
+
+  book.update({_id: id}, updatedBook, (err) => {
+    if(err){
+      console.log(err);
+      res.end(err);
+    }
+    else
+    {
+      //refresh the contact list
+      res.redirect('/books');
+    }
+
+  });
+    
 
 });
 
@@ -79,6 +116,19 @@ router.get('/delete/:id', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
+
+    let id = req.params.id;
+
+    book.remove({_id: id}, (err) => {
+        if(err) {
+            console.log(err);
+            res.end(err);
+        }
+        else {
+            // refresh the contact list
+            res.redirect('/books');
+        }
+});
 });
 
 
