@@ -50,7 +50,7 @@ router.post('/add', (req, res, next) => {
       res.end(err);
     }
     else{
-      //refresh the book list
+      // redirect to the books page
       res.redirect('/books');
     }
 
@@ -101,7 +101,7 @@ router.post('/:id', (req, res, next) => {
     }
     else
     {
-      //refresh the contact list
+      // redirect to the books page
       res.redirect('/books');
     }
 
@@ -121,7 +121,7 @@ router.get('/delete/:id', (req, res, next) => {
             res.end(err);
         }
         else {
-            // refresh the contact list
+            // redirect to the books page
             res.redirect('/books');
         }
 });
