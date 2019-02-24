@@ -1,3 +1,10 @@
+/*
+File Name: Books 
+Author's Name: Tom Tsiliopoulos
+Name: Abdulghafor Nurali
+Student Number: 300655894
+*/
+
 // modules required for routing
 let express = require('express');
 let router = express.Router();
@@ -124,7 +131,7 @@ router.get('/delete/:id', (req, res, next) => {
             // redirect to the books page
             res.redirect('/books');
         }
-});
+    });
 });
 
 

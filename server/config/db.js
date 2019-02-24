@@ -1,3 +1,11 @@
+/*
+File Name: Books 
+Author's Name: Tom Tsiliopoulos
+Name: Abdulghafor Nurali
+Student Number: 300655894
+*/
+
+
 module.exports = {
   //local MongoDB deployment ->
   //"URI": "mongodb://localhost/books308"
