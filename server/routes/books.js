@@ -9,7 +9,7 @@ Student Number: 300655894
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
-
+let passport = require("passport");
 // define the book model
 let book = require('../models/books');
 
